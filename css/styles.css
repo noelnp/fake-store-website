@@ -1,0 +1,20 @@
+
+.navbar {
+    background: black;
+    width: 100%;
+}
+
+
+.card {
+    border-radius: 0 !important;
+    margin-bottom:50px;
+    border-bottom: 0;
+    border-right:0;
+    margin: 4px;
+}
+.card-img-top{
+    border-radius: 0 !important;
+}
+.test {
+    border-radius: 0;
+}
