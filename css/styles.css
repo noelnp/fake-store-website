@@ -1,11 +1,19 @@
+.card-body {
+  background: #222222;
+  color: white;
+}
+
 .navbar {
-  background: transparent;
+  background: black;
   width: 100%;
   transition: background-color 0.5s ease;
 }
 
 .navbar.scrolled {
   background: rgba(0, 0, 0, 0.9); /* Slightly opaque dark background */
+}
+.form-control{
+  border-radius: 0;
 }
 
 .hero-container {
@@ -33,19 +41,19 @@
 }
 
 .card img {
-  height: 500px;
+  height: 476px;
 }
 
 .card {
   border-radius: 0 !important;
-  margin-bottom: 50px;
-  border-bottom: 0;
-  border-right: 0;
-  margin: 4px;
 }
 .card-img-top {
   border-radius: 0 !important;
 }
 .test {
   border-radius: 0;
+}
+label.required::afte{
+  content: " *";
+  color: red;
 }
