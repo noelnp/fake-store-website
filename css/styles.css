@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  background: black;
+  background: transparent;
   width: 100%;
   transition: background-color 0.5s ease;
 }
