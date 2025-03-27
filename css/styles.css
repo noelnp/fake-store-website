@@ -53,7 +53,7 @@
 .test {
   border-radius: 0;
 }
-label.required::afte{
+label.required::after{
   content: " *";
   color: red;
 }
