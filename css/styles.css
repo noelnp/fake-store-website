@@ -8,6 +8,7 @@ body {
 }
 
 .navbar {
+  background: transparent;
   width: 100%;
   transition: background-color 0.5s ease;
 }
@@ -57,7 +58,7 @@ body {
 .test {
   border-radius: 0;
 }
-label.required::afte {
+label.required::after {
   content: ' *';
   color: red;
 }
