@@ -54,7 +54,13 @@ button {
 
 .card {
   border-radius: 0 !important;
-  border: 1px solidrgb(215, 32, 32);
+  border: 1px solid white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.card:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2); 
 }
 .card-img-top {
   border-radius: 0 !important;
