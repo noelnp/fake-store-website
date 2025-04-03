@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const submitButton = document.getElementById('submitButton');
   submitButton.addEventListener('click', function (event) {
     event.preventDefault();
-    validateCheckoutForm();
+
+    if (validateCheckoutForm()) window.location.href = 'checkout-complete.html';
   });
 });

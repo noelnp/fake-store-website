@@ -41,16 +41,7 @@ function validatePostalCode(postalCode) {
   return '';
 }
 
-function clearPreviousErrors() {
-  const errorElements = document.querySelectorAll('.text-danger');
-  errorElements.forEach((el) => {
-    el.classList.add('d-none');
-    el.textContent = '';
-  });
-}
-
 export function validateCheckoutForm() {
-  clearPreviousErrors();
   const email = document.getElementById('emailInput').value.trim();
   const phone = document.getElementById('phoneInput').value.trim();
   const firstName = document.getElementById('firstNameInput').value.trim();
@@ -81,4 +72,7 @@ export function validateCheckoutForm() {
       errorElement.textContent = '';
     }
   });
+
+  console.log(validationResults);
+  return Object.values(validationResults).every((result) => result === '');
 }

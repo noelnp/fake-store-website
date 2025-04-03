@@ -98,3 +98,6 @@ footer {
 .fa-trash {
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+}
