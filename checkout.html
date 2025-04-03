@@ -70,21 +70,11 @@
               >
                 Categories
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">All Products</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Tops</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Pants</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Shoes</a>
-                </li>
-              </ul>
+              <ul
+                class="dropdown-menu"
+                id="dropdownMenu"
+                aria-labelledby="navbarDropdown"
+              ></ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="checkout.html">Checkout</a>
@@ -204,7 +194,7 @@
               type="button"
               class="btn btn-dark w-100"
               style="padding: 15px; border-radius: 0"
-              onclick="window.location.href='checkout-complete.html'"
+              onclick="validateCheckoutForm()"
             >
               Slutför Beställning
             </button>
@@ -215,7 +205,13 @@
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-4">
-      <p>&copy; 2025 AKLN. All rights reserved.</p>
+      <p>&copy; 2025 AKLN. All rights res§erved.</p>
     </footer>
+
+    <script src="js/event-listeners.js"></script>
+
+    <script>
+      src = 'js/validate-checkout.js';
+    </script>
   </body>
 </html>

@@ -1,39 +1,22 @@
-// const productsUrl = 'http://localhost:8080/api/products';
+import { createProducts } from './create-products.js';
+import { createCategories } from './create-categories.js';
 
-// async function fetchProducts() {
-//   const response = await fetch(productsUrl);
-//   const productJson = await response.json();
-//   const products = JSON.stringify(productJson);
+export async function fetchProducts(productsUrl) {
+  try {
+    const res = await fetch(productsUrl);
+    const productsArray = await res.json();
+    createProducts(productsArray);
+  } catch (error) {
+    console.log('Error fetching products:', error);
+  }
+}
 
-//   return products;
-// }
-
-// const products = fetchProducts();
-
-// function createProducts() {
-//   const productsGrid = document.getElementById('products-grid');
-
-//   const titleElement = document.createElement('div');
-//   titleElement.innerHTML = 'Produkt';
-
-//   const imageElement = document.createElement('img');
-//   imageElement.src = products[0].imageLink;
-//   imageElement.alt = 'Produktbild';
-
-//   const productElement = document.createElement('div');
-//   productElement.classList.add(
-//     'col-6',
-//     'col-md-4',
-//     'col-lg-3',
-//     'test',
-//     'text-red'
-//   );
-
-//   productElement.appendChild(titleElement);
-
-//   //   productElement.appendChild(imageElement);
-
-//   productsGrid.appendChild(productElement);
-// }
-
-// createProducts();
+export async function fetchCategories() {
+  try {
+    const res = await fetch('http://localhost:8080/api/categories');
+    const categoriesArray = await res.json();
+    createCategories(categoriesArray);
+  } catch (error) {
+    console.log('Error fetching products:', error);
+  }
+}
