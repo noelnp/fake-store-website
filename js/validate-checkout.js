@@ -1,4 +1,56 @@
+// validate-checkout.js
+function validateLength(input) {
+  if (input === '') {
+    console.log('Fält är tomt');
+    return 'Fält får inte vara tomt';
+  }
+  if (input.length < 2) {
+    console.log('För kort text');
+    return 'Måste vara minst 2 tecken';
+  }
+  if (input.length > 50) {
+    console.log('För lång text');
+    return 'Måste vara färre än 50 tecken';
+  }
+  return '';
+}
+
+function validateEmail(email) {
+  const lengthCheck = validateLength(email);
+  if (lengthCheck) return lengthCheck;
+
+  const emailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  if (!email.match(emailRegex)) return 'Måste vara en giltig epostaddress';
+  return '';
+}
+
+function validatePhone(phone) {
+  const lengthCheck = validateLength(phone);
+  if (lengthCheck) return lengthCheck;
+
+  const phoneRegex = /^[0-9()\-]+$/;
+  if (!phone.match(phoneRegex)) return 'Måste vara ett giltigt telefonnummer.';
+  return '';
+}
+
+function validatePostalCode(postalCode) {
+  const postalCodeRegex = /^\d{5}$/;
+  if (!postalCode.match(postalCodeRegex)) return 'Måste vara exakt fem siffror';
+  return '';
+}
+
+function clearPreviousErrors() {
+  const errorElements = document.querySelectorAll('.text-danger');
+  errorElements.forEach((el) => {
+    el.classList.add('d-none');
+    el.textContent = '';
+  });
+}
+
 export function validateCheckoutForm() {
+  clearPreviousErrors();
   const email = document.getElementById('emailInput').value.trim();
   const phone = document.getElementById('phoneInput').value.trim();
   const firstName = document.getElementById('firstNameInput').value.trim();
@@ -7,27 +59,26 @@ export function validateCheckoutForm() {
   const postalCity = document.getElementById('postalCityInput').value.trim();
   const postalCode = document.getElementById('postalCodeInput').value.trim();
 
-  const emailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (!email.match(emailRegex)) {
-    alert('Ange en giltig email');
-  }
+  const validationResults = {
+    email: validateEmail(email),
+    phone: validatePhone(phone),
+    firstName: validateLength(firstName),
+    lastName: validateLength(lastName),
+    address: validateLength(address),
+    postalCity: validateLength(postalCity),
+    postalCode: validatePostalCode(postalCode),
+  };
 
-  // Validera epost
+  Object.keys(validationResults).forEach((field) => {
+    const errorMessage = validationResults[field];
+    const errorElement = document.getElementById(`${field}Error`);
 
-  // /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-  // Validera telefon
-
-  // Validera förnamn + efternamn
-
-  /*
-    a. Namnet är minst 2 tecken och max 50 tecken
-b. E-postadressen måste innehålla @ och max 50 tecken
-c. Telefonnummer får innehålla siffror, bindestreck och parenteser. Max 50 tecken.
-d. Leveransadress enligt svensk standard:
-i. Gatuadress: Min 2 tecken och Max 50 tecken
-ii. Postnummer: Exakt 5 siffror
-iii. Ort: Min 2 tecken och Max 50 tecken
-*/
+    if (errorMessage) {
+      errorElement.classList.remove('d-none');
+      errorElement.textContent = errorMessage;
+    } else {
+      errorElement.classList.add('d-none');
+      errorElement.textContent = '';
+    }
+  });
 }

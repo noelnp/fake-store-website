@@ -30,15 +30,15 @@ export function createProducts(productsArray) {
 
     cardBodyElement.appendChild(cardBodyTitle);
     cardBodyElement.appendChild(cardBodyText);
-
     cardElement.appendChild(cardProductImage);
-
     cardElement.appendChild(cardBodyElement);
-
     aTagElement.appendChild(cardElement);
-
     gridColumn.appendChild(aTagElement);
-
     productsGrid.appendChild(gridColumn);
+
+    aTagElement.addEventListener('click', () => {
+      console.log('Klick registrerat!');
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
+    });
   });
 }

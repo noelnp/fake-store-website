@@ -1,6 +1,9 @@
+import { validateCheckoutForm } from './validate-checkout.js';
+
 document.addEventListener('DOMContentLoaded', function () {
+  // Hero section scroll effect
   const heroContainer = document.querySelector('.hero-container');
-  const heroHeight = heroContainer.offsetHeight;
+  // const heroHeight = heroContainer.offsetHeight;
 
   window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
@@ -9,5 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       navbar.classList.remove('scrolled');
     }
+  });
+
+  const submitButton = document.getElementById('submitButton');
+  submitButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    validateCheckoutForm();
   });
 });
