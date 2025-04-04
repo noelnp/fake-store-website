@@ -89,7 +89,7 @@
       <div class="row">
         <div class="col-12 col-md-6" id="productImageContainer">
           <img
-            src="https://images-ext-1.discordapp.net/external/rof1hArd7ZZ9CwsnLvAaabHIOHpgFQpiuwAorBY8KhQ/%3Fimwidth%3D2160/https/image.hm.com/assets/hm/e5/16/e516a4193581f5d8194a083db3ce3fa27165b271.jpg?format=webp&width=1072&height=1608"
+            src=""
             class="card-img-top"
             id="productImage"
             alt="Gray Sweater"
@@ -100,8 +100,8 @@
             <div
               class="d-flex justify-content-between align-items-center border-bottom border-dark"
             >
-              <h3 id="productName">Gray Sweater</h3>
-              <h3 id="productPrice">499kr</h3>
+              <h3 id="productName"></h3>
+              <h3 id="productPrice"></h3>
             </div>
             <div class="d-flex align-items-center p-2 mt-3">
               <i class="fa-solid fa-trash text-danger me-2"></i>
@@ -232,26 +232,9 @@
     </footer>
 
     <script type="module" src="js/event-listeners.js"></script>
-    <script>
-      const selectedProduct = JSON.parse(
-        localStorage.getItem('selectedProduct')
-      );
-
-      const productImage = selectedProduct.imageLink;
-      const productName = selectedProduct.name;
-      const productPrice = selectedProduct.price;
-      const nameElement = document.getElementById('productName');
-      const imageElement = document.getElementById('productImage');
-      const priceElement = document.getElementById('productPrice');
-
-      nameElement.textContent = productName;
-      priceElement.textContent = `${productPrice}kr`;
-      imageElement.src = productImage;
-    </script>
+    <script src="js/local-storage-util.js"></script>
     <script type="module">
-      import { fetchProducts, fetchCategories } from './js/fetch-data.js';
-
-      fetchProducts('http://localhost:8080/api/frontpage-products');
+      import { fetchCategories } from './js/fetch-data.js';
       fetchCategories();
     </script>
   </body>

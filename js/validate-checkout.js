@@ -73,6 +73,5 @@ export function validateCheckoutForm() {
     }
   });
 
-  console.log(validationResults);
   return Object.values(validationResults).every((result) => result === '');
 }

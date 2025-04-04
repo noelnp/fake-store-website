@@ -3,7 +3,7 @@ import { validateCheckoutForm } from './validate-checkout.js';
 document.addEventListener('DOMContentLoaded', function () {
   // Hero section scroll effect
   const heroContainer = document.querySelector('.hero-container');
-  // const heroHeight = heroContainer.offsetHeight;
+  //const heroHeight = heroContainer.offsetHeight;
 
   window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
