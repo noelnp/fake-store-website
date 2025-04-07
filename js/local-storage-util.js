@@ -12,3 +12,8 @@
   priceElement.textContent = `${productPrice}kr`;
   imageElement.src = productImage;
 })();
+
+const completeMessage = document.getElementById('complete-message');
+const customerFirstName = localStorage.getItem('customerFirstName');
+
+completeMessage.textContent = `Tack för din beställning ${customerFirstName}!`;
