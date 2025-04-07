@@ -1,15 +1,12 @@
 // validate-checkout.js
 function validateLength(input) {
   if (input === '') {
-    console.log('Fält är tomt');
     return 'Fält får inte vara tomt';
   }
   if (input.length < 2) {
-    console.log('För kort text');
     return 'Måste vara minst 2 tecken';
   }
   if (input.length > 50) {
-    console.log('För lång text');
     return 'Måste vara färre än 50 tecken';
   }
   return '';

@@ -37,7 +37,6 @@ export function createProducts(productsArray) {
     productsGrid.appendChild(gridColumn);
 
     aTagElement.addEventListener('click', () => {
-      console.log('Klick registrerat!');
       localStorage.setItem('selectedProduct', JSON.stringify(product));
     });
   });
