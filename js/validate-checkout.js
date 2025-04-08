@@ -61,6 +61,11 @@ export function validateCheckoutForm() {
     const errorMessage = validationResults[field];
     const errorElement = document.getElementById(`${field}Error`);
 
+    if (!errorElement) {
+      console.warn(`Missing error element: #${field}Error`);
+      return;
+    }
+
     if (errorMessage) {
       errorElement.classList.remove('d-none');
       errorElement.textContent = errorMessage;
