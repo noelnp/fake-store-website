@@ -18,7 +18,7 @@ button {
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.9); /* Slightly opaque dark background */
+  background: rgba(0, 0, 0, 0.9);
 }
 .form-control {
   border-radius: 0;

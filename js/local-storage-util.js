@@ -16,4 +16,6 @@
 const completeMessage = document.getElementById('complete-message');
 const customerFirstName = localStorage.getItem('customerFirstName');
 
-completeMessage.textContent = `Tack för din beställning ${customerFirstName}!`;
+if (completeMessage) {
+  completeMessage.textContent = `Tack för din beställning ${customerFirstName}!`;
+}
