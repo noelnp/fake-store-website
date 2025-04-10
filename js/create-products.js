@@ -14,9 +14,6 @@ export function createProducts(productsArray) {
 
     cardProductImage.src = product.imageLink || 'default-image.jpg';
     cardProductImage.classList.add('card-img-top');
-    
-    cardProductImage.width = 431;
-    cardProductImage.height = 647;
 
     const cardBodyElement = document.createElement('div');
     cardBodyElement.classList.add('card-body');
