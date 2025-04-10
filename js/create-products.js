@@ -1,9 +1,15 @@
 export function createProducts(productsArray) {
+  // const rowCount = 0;
+
   productsArray.forEach((product) => {
     const productsGrid = document.getElementById('products-grid');
 
     const gridColumn = document.createElement('div');
     gridColumn.classList.add('col-6', 'col-md-4', 'col-lg-3');
+
+    // if (rowCount > 4) {
+    //   gridColumn.classList.add('pt-5');
+    // }
 
     const aTagElement = document.createElement('a');
     aTagElement.href = 'checkout.html';
@@ -39,5 +45,7 @@ export function createProducts(productsArray) {
     aTagElement.addEventListener('click', () => {
       localStorage.setItem('selectedProduct', JSON.stringify(product));
     });
+
+    // rowCount++;
   });
 }

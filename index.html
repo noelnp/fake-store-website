@@ -85,7 +85,11 @@
     <script type="module">
       import { fetchProducts, fetchCategories } from './js/fetch-data.js';
 
-      fetchProducts('https://store-api-fjmh.onrender.com/api/frontpage-products');
+      alert('Produkterna laddar, kan ta upp till 50 sekunder.');
+
+      fetchProducts(
+        'https://store-api-fjmh.onrender.com/api/frontpage-products'
+      );
       fetchCategories();
     </script>
   </body>
