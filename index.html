@@ -85,7 +85,14 @@
     <script type="module">
       import { fetchProducts, fetchCategories } from './js/fetch-data.js';
 
-      alert('Produkterna laddar, kan ta upp till 50 sekunder.');
+      // Check if the alert has already been shown in this session
+      if (!sessionStorage.getItem('alertShown')) {
+        alert(
+          'Produkter laddas från API, kan ta upp till 50 sekunder vid första anrop. Vänligen vänta...'
+        );
+        // Set a flag in sessionStorage to indicate the alert has been shown
+        sessionStorage.setItem('alertShown', 'true');
+      }
 
       fetchProducts(
         'https://store-api-fjmh.onrender.com/api/frontpage-products'
